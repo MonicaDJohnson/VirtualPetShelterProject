@@ -8,68 +8,88 @@ namespace VirtualPetShelterProject
 {
     class VirtualPet
     {
-            //Define fields
-            private string name;
-            private int hungerLevel;
-            private int sleepyLevel;
-            private int happyLevel;
-            private bool isPetHungry;
-            private bool isPetSleepy;
-            private bool isPetHappy;
-            //Define properties
-            public string Name
-            {
-                get { return this.name; }
-                set { this.name = value; }
-            }
-            public int HungerLevel
-            {
-                get { return this.hungerLevel; }
-                set { this.hungerLevel = value; }
-            }
-            public int SleepyLevel
-            {
-                get { return this.sleepyLevel; }
-                set { this.sleepyLevel = value; }
-            }
-            public int HappyLevel
-            {
-                get { return this.happyLevel; }
-                set { this.happyLevel = value; }
-            }
-            public bool IsPetHungry
-            {
-                get { return this.isPetHungry; }
-                set { this.isPetHungry = value; }
-            }
-            public bool IsPetSleepy
-            {
-                get { return this.isPetSleepy; }
-                set { this.isPetSleepy = value; }
-            }
-            public bool IsPetHappy
-            {
-                get { return this.isPetHappy; }
-                set { this.isPetHappy = value; }
-            }
+        //Define fields
+        private string name;
+        private int hungerLevel;
+        private int sleepyLevel;
+        private int happyLevel;
+        private int thirstLevel;
+        private bool isPetHungry;
+        private bool isPetSleepy;
+        private bool isPetHappy;
+        private bool isPetThirsty;
+        //Define properties
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+        public int HungerLevel
+        {
+            get { return this.hungerLevel; }
+            set { this.hungerLevel = value; }
+        }
+        public int SleepyLevel
+        {
+            get { return this.sleepyLevel; }
+            set { this.sleepyLevel = value; }
+        }
+        public int HappyLevel
+        {
+            get { return this.happyLevel; }
+            set { this.happyLevel = value; }
+        }
+
+        public int ThirstLevel
+        {
+            get { return this.thirstLevel; }
+            set { this.thirstLevel = value; }
+        }
+           
+        public bool IsPetHungry
+        {
+            get { return this.isPetHungry; }
+            set { this.isPetHungry = value; }
+        }
+        public bool IsPetSleepy
+        {
+            get { return this.isPetSleepy; }
+            set { this.isPetSleepy = value; }
+        }
+        public bool IsPetHappy
+        {
+            get { return this.isPetHappy; }
+            set { this.isPetHappy = value; }
+        }
+
+        public bool IsPetThirsty
+        {
+            get { return this.isPetThirsty; }
+            set { this.isPetThirsty = value; }
+        }
+        
+
             public VirtualPet()
             {
                 //Default constructor
             }
-            public VirtualPet(string name, int hungerLevel, int sleepyLevel, int happyLevel)//loaded constructor
+            public VirtualPet(string name, int hungerLevel, int sleepyLevel, int happyLevel, int thirstLevel)//loaded constructor
             {
                 this.name = name;
                 this.hungerLevel = hungerLevel;
                 this.sleepyLevel = sleepyLevel;
                 this.happyLevel = happyLevel;
+                this.thirstLevel = thirstLevel;
             }
             //Methods
-            public void Tick(bool isPetHungry, bool isPetSleepy, bool isPetHappy)//I was not sure if I should put this method before or after Main.
+            public void Tick(bool isPetHungry, bool isPetThirsty, bool isPetSleepy, bool isPetHappy)//I was not sure if I should put this method before or after Main.
             {
                 Random r = new Random();
                 hungerLevel = r.Next(0, 30);
                 sleepyLevel = r.Next(0, 30);
                 happyLevel = r.Next(0, 30);
+                thirstLevel = r.Next(0, 30);
+
                 if (hungerLevel < 10)
                 {
                     isPetHungry = (true);
@@ -78,6 +98,15 @@ namespace VirtualPetShelterProject
                 {
                     isPetHungry = (false);
                 }
+                if (thirstLevel < 10)
+                {
+                     isPetThirsty = (true);
+                }
+                else
+                {
+                     isPetThirsty = (false);
+                }
+
                 if (sleepyLevel < 10)
                 {
                     isPetSleepy = (true);
@@ -103,14 +132,24 @@ namespace VirtualPetShelterProject
                     hungerLevel = hungerLevel - 10;
                 }
             }
-            public void Sleep()
+
+            public void Water()
             {
-                sleepyLevel--;
-                if (sleepyLevel < 10)
-                {
-                    sleepyLevel = sleepyLevel - 10;
-                }
+                thirstLevel--;
+                 if (thirstLevel < 10)
+                 {
+                    thirstLevel = thirstLevel - 10;
+                 }
+
             }
+             public void Sleep()
+             {
+                 sleepyLevel--;
+                 if (sleepyLevel < 10)
+                 {
+                    sleepyLevel = sleepyLevel - 10;
+                 }
+             }
             public void Play()
             {
                 happyLevel++;

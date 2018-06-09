@@ -8,6 +8,12 @@ namespace VirtualPetShelterProject
 {
     class TypeAndDietClass:VirtualPet
     {
-
+        public string PetTypeCat { get; set; }
+        public string PetTypeDog { get; set; }
+        public string PetTypeBird { get; set; }
+        public string PetDietCat { get; set; }
+        public string PetDietDog { get; set; }
+        public string PetDietBird { get; set; }
+        
     }
 }

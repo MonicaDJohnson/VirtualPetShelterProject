@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace VirtualPetShelterProject
 {
-    class Employee
+    public abstract class Employee
     {
+        public int EmployeeNumber { get; set; }
+
+        public abstract void FormerEmployee();
+
+
+        public abstract void NewEmployee();
+        
 
     }
 }
