@@ -10,6 +10,14 @@ namespace VirtualPetShelterProject
     {
         //public int ThirstLevel { get; set; }
           //public int HungerLevel { get; set; }
+          //public string volunteerJob { get; set; }
+          public bool isPetFed { get; set; }
+          public bool isPetWatered { get; set; }
+          public int food;
+          public int water;
+          public int workDay;
+
+
         public override void FormerEmployee()
         {
             throw new NotImplementedException();
@@ -20,23 +28,25 @@ namespace VirtualPetShelterProject
             throw new NotImplementedException();
         }
 
-        //public void Water()
-        //{
-        //    thirstLevel--;
-        //    if (thirstLevel < 10)
-        //    {
-        //        thirstLevel = thirstLevel - 10;
-        //    }
-        //}
+        public override void PunchIn()
+        {
+            throw new NotImplementedException();
+            workDay = workDay + 5;
+        }
 
-        //public void Feed()
-        //{
-        //    hungerLevel--;
-        //    if (hungerLevel < 10)
-        //    {
-        //        hungerLevel = hungerLevel - 10;
-        //    }
-        //}
+        public bool FeedPets()
+        {
+            food = food + 2;
+            return isPetFed = true;
+        }
+
+        public bool WaterPets()
+        {
+            water = water + 2;
+            return isPetWatered = true;
+        }
+
+        
     }
 
 }

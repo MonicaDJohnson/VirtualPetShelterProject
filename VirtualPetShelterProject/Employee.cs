@@ -14,6 +14,8 @@ namespace VirtualPetShelterProject
 
 
         public abstract void NewEmployee();
+
+        public abstract void PunchIn();
         
 
     }

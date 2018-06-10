@@ -18,6 +18,8 @@ namespace VirtualPetShelterProject
         private bool isPetSleepy;
         private bool isPetHappy;
         private bool isPetThirsty;
+        private string petDescription;
+
         //Define properties
         public string Name
         {
@@ -67,12 +69,25 @@ namespace VirtualPetShelterProject
             get { return this.isPetThirsty; }
             set { this.isPetThirsty = value; }
         }
-        
 
-            public VirtualPet()
+        public string PetDescription
+        {
+            get { return this.petDescription; }
+            set { this.petDescription = value; }
+        }
+
+
+        public VirtualPet()
             {
                 //Default constructor
             }
+
+            public VirtualPet(string name, string petDescription)
+            {
+            this.name = name;
+            this.petDescription = petDescription;
+        }
+
             public VirtualPet(string name, int hungerLevel, int sleepyLevel, int happyLevel, int thirstLevel)//loaded constructor
             {
                 this.name = name;
@@ -81,8 +96,18 @@ namespace VirtualPetShelterProject
                 this.happyLevel = happyLevel;
                 this.thirstLevel = thirstLevel;
             }
-            //Methods
-            public void Tick(bool isPetHungry, bool isPetThirsty, bool isPetSleepy, bool isPetHappy)//I was not sure if I should put this method before or after Main.
+             public VirtualPet(string name, int hungerLevel, int sleepyLevel, int happyLevel, int thirstLevel, string petDescription)//loaded constructor
+             {
+                this.name = name;
+                this.hungerLevel = hungerLevel;
+                this.sleepyLevel = sleepyLevel;
+                this.happyLevel = happyLevel;
+                this.thirstLevel = thirstLevel;
+                this.petDescription = petDescription;
+             }
+
+        //Methods
+        public void Tick(bool isPetHungry, bool isPetThirsty, bool isPetSleepy, bool isPetHappy)//I was not sure if I should put this method before or after Main.
             {
                 Random r = new Random();
                 hungerLevel = r.Next(0, 30);
