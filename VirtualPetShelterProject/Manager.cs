@@ -54,6 +54,17 @@ namespace VirtualPetShelterProject
         }
 
 
+        public void HungryStatus()
+        {
+            if (hungerLevel < 10)
+            {
+                isPetHungry = (true);
+            }
+            else
+            {
+                isPetHungry = (false);
+            }
+        }
         public void ThirstyStatus()
         {
             Random r = new Random();
