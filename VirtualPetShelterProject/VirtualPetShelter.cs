@@ -8,11 +8,12 @@ namespace VirtualPetShelterProject
 {
     class VirtualPetShelter
     {
-        //List<string> employeeList = new List<string>();
+        //public virtual List<string> employeeList();//I have not figured out how to link the lists and my adoption method.
         //employeeList.Add("EmployeeOne");
         //employeeList.Add("EmployeeTwo");
         //employeeList.Add("ManagerOne");
         //employeeList.Add("ManagerTwo);
+        
 
         //List<string> petList = new List<string>();
         //petList.Add("PetOne");

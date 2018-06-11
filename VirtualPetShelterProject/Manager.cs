@@ -9,27 +9,27 @@ namespace VirtualPetShelterProject
     class Manager : Employee
     {
         public bool AdoptionStatus { get; set; }
-        public int hungerLevel { get; set; }
-        public int sleepyLevel { get; set; }
-        public int happyLevel { get; set; }
-        public int thirstLevel { get; set; }
-        public bool isPetHungry { get; set; }
-        public bool isPetSleepy { get; set; }
-        public bool isPetHappy { get; set; }
-        public bool isPetThirsty { get; set; }
+        public int HungerLevel { get; set; }
+        public int SleepyLevel { get; set; }
+        public int HappyLevel { get; set; }
+        public int ThirstLevel { get; set; }
+        public bool IsPetHungry { get; set; }
+        public bool IsPetSleepy { get; set; }
+        public bool IsPetHappy { get; set; }
+        public bool IsPetThirsty { get; set; }
         public string EmployeeSpecialty { get; set; }
         public string Overtime { get; set; }
 
         public Manager(int hungerLevel, int sleepyLevel, int happyLevel, int thirstLevel, bool isPetHungry, bool isPetSleepy, bool isPetHappy, bool isPetThirsty)
         {
-            this.hungerLevel = hungerLevel;
-            this.sleepyLevel = sleepyLevel;
-            this.happyLevel = happyLevel;
-            this.thirstLevel = thirstLevel;
-            this.isPetHungry = isPetHungry;
-            this.isPetSleepy = isPetSleepy;
-            this.isPetHappy = isPetHappy;
-            this.isPetThirsty = isPetThirsty;
+            this.HungerLevel = hungerLevel;
+            this.SleepyLevel = sleepyLevel;
+            this.HappyLevel = happyLevel;
+            this.ThirstLevel = thirstLevel;
+            this.IsPetHungry = isPetHungry;
+            this.IsPetSleepy = isPetSleepy;
+            this.IsPetHappy = isPetHappy;
+            this.IsPetThirsty = isPetThirsty;
         }
 
         public override void NewEmployee()
@@ -54,65 +54,93 @@ namespace VirtualPetShelterProject
         }
 
 
-        public void HungryStatus()
-        {
-            if (hungerLevel < 10)
-            {
-                isPetHungry = (true);
-            }
-            else
-            {
-                isPetHungry = (false);
-            }
-        }
-        public void ThirstyStatus()
+        public bool HungryStatus()
         {
             Random r = new Random();
-            thirstLevel = r.Next(0, 30);
+            HungerLevel = r.Next(0, 30);
 
-            if (thirstLevel < 10)
+            if (HungerLevel < 10)
             {
-                isPetThirsty = (true);
+                IsPetHungry = (true);
             }
             else
             {
-                isPetThirsty = (false);
+                IsPetHungry = (false);
             }
+
+            return IsPetHungry;
         }
-        public void SleepyStatus()
+        public bool ThirstyStatus()
         {
             Random r = new Random();
-            sleepyLevel = r.Next(0, 30);
+            ThirstLevel = r.Next(0, 30);
 
-            if (sleepyLevel < 10)
+            if (ThirstLevel < 10)
             {
-                isPetSleepy = (true);
+                IsPetThirsty = (true);
             }
             else
             {
-                isPetSleepy = (false);
+                IsPetThirsty = (false);
             }
-        }
 
-        public void HappyStatus()
+            return IsPetThirsty;
+
+            
+        }
+        public bool SleepyStatus()
         {
             Random r = new Random();
-            happyLevel = r.Next(0, 30);
+            SleepyLevel = r.Next(0, 30);
 
-            if (happyLevel < 10)
+            if (SleepyLevel < 10)
             {
-                isPetHappy = (false);
+                IsPetSleepy = (true);
             }
             else
             {
-                isPetHappy = (true);
+                IsPetSleepy = (false);
             }
+
+            return IsPetSleepy;
+        }
+
+        public bool HappyStatus()
+        {
+            Random r = new Random();
+            HappyLevel = r.Next(0, 30);
+
+            if (HappyLevel < 10)
+            {
+                IsPetHappy = (false);
+            }
+            else
+            {
+                IsPetHappy = (true);
+            }
+
+            return IsPetHappy;
         }
 
         public void PetPlaying()
         {
-            happyLevel = happyLevel++;
-        }//play
+            HappyLevel = HappyLevel++;
+        }
+        
+        public void PetFeeding()
+        {
+            HungerLevel = HungerLevel--;
+        }
+
+        public void PetWatering()
+        {
+            ThirstLevel = ThirstLevel--;
+        }
+
+        public void PetSleeping()
+        {
+            SleepyLevel = SleepyLevel--;
+        }
     }//class
 }
 
